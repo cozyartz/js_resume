@@ -19,9 +19,9 @@ $("#header").prepend(formattedName);
     },
   "welcomeMessage" : "Thanks for checking out my info!",
   "skills" : [
-    "HTML", "CSS", "JS", "Ruby", "WordPress", "GitHub"
+    "HTML", "CSS", "Ruby", "WordPress", "GitHub"
   ],
-  "bioPic" : "images/fry.jpg"
+  "bioPic" : "images/cozy.jpg"
 }
   var education = {
     "schools" : [
@@ -96,6 +96,13 @@ $("#header").prepend(formattedName);
         "title" : "Portfolio Site",
         "dates" : "2016",
         "description" : "Personal Portfolio site",
+        "images" : "images/pro1.png"
+      },
+      {
+        "title" : "To-Do List",
+        "dates" : "2015",
+        "description" : "Simple To-Do list code-along with Colt Steele",
+        "images" : "images/pro1.png"
       }
     ]
   }
@@ -113,8 +120,8 @@ if(bio.skills.length > 0) {
   $("#skills").append(formattedSkill);
   formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
   $("#skills").append(formattedSkill);
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-  $("#skills").append(formattedSkill);
+  // formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
+  // $("#skills").append(formattedSkill);
 };
 
 function displayWork() {
@@ -148,25 +155,45 @@ $(document).click(function(loc) {
   logClicks(x,y);
 });
 
-// function locationizer(work_obj) {
-//   var locationArray = [];
-//
-//   for (job in work_obj.jobs) {
-//     var newLocation = work_obj.jobs[job].location;
-//     locationArray.push(newLocation);
-//   }
-//   return locationArray;
-// }
-//
-// console.log(locationizer(work));
+function locationizer(work_obj) {
+  var locationArray = [];
 
-function inName(name) {
-  name = name.trim().split(" ");
-  console.log(name);
-  name[1] = name[1].toUpperCase();
-  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-   return name[0] + " " + name[1];
+  for (job in work_obj.jobs) {
+    var newLocation = work_obj.jobs[job].location;
+    locationArray.push(newLocation);
+  }
+  return locationArray;
 }
 
-$('#main').append(internationalizeButton);
+console.log(locationizer(work));
+
+// function inName(name) {
+//   name = name.trim().split(" ");
+//   console.log(name);
+//   name[1] = name[1].toUpperCase();
+//   name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+//
+//    return name[0] + " " + name[1];
+// }
+//
+// $('#main').append(internationalizeButton);
+
+projects.display = function() {
+  for (project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+
+    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formattedTitle);
+    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formattedDates);
+    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formattedDescription);
+
+    if (projects.projects[project].images.length > 0) {
+      for (image in projects.projects[project].images) {
+        var formattedImage = HTMLprojectImage.replace("%data", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedImage);
+      }
+    }
+  }
+}
