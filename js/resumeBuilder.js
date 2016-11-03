@@ -96,13 +96,13 @@ $("#header").prepend(formattedName);
         "title" : "Portfolio Site",
         "dates" : "2016",
         "description" : "Personal Portfolio site",
-        "images" : "images/pro1.png"
+        "images" : ["http://placehold.it/350x150"]
       },
       {
         "title" : "To-Do List",
         "dates" : "2015",
         "description" : "Simple To-Do list code-along with Colt Steele",
-        "images" : "images/pro1.png"
+        "images" : ["images/meh.jpg", "images/fry.jpg"]
       }
     ]
   }
@@ -189,11 +189,14 @@ projects.display = function() {
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
     $(".project-entry:last").append(formattedDescription);
 
-    if (projects.projects[project].images.length > 0) {
+    if (projects.projects[project].images) {
       for (image in projects.projects[project].images) {
-        var formattedImage = HTMLprojectImage.replace("%data", projects.projects[project].images[image]);
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
         $(".project-entry:last").append(formattedImage);
       }
     }
   }
 }
+projects.display();
+
+$("#mapDiv").append(googleMap);
