@@ -1,12 +1,3 @@
-// var name = "Andrea Cozart-Lundin";
-// var role = "Web Developer";
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRoll = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRoll);
-$("#header").prepend(formattedName);
-
-
  var bio = {
   "name" : "Andrea Cozart-Lundin",
   "role" : "Web Developer",
@@ -179,44 +170,51 @@ console.log(locationizer(work));
 // $('#main').append(internationalizeButton);
 
 projects.display = function() {
-  forEach(project in projects.projects) {
+  projects.projects.forEach(function(project) {
     $("#projects").append(HTMLprojectStart);
 
-    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
     $(".project-entry:last").append(formattedTitle);
-    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    var formattedDates = HTMLprojectDates.replace("%data%", project.dates);
     $(".project-entry:last").append(formattedDates);
-    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
     $(".project-entry:last").append(formattedDescription);
 
-    if (projects.projects[project].images) {
-      forEach (image in projects.projects[project].images) {
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+    if (project.images) {
+      project.images.forEach(function(image) {
+        var formattedImage = HTMLprojectImage.replace("%data%", image);
         $(".project-entry:last").append(formattedImage);
-      }
+      });
     }
-  }
-}
+  });
+};
 projects.display();
 
-// $("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
 
 
-function displayBio(){
-  for (skills in bio.skills) {
-    $("#header").append(HTMLskillsStart);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    $("#skills").append(formattedSkill);
+bio.display = function(){
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
+  var formattedRoll = HTMLheaderRole.replace("%data%", bio.role);
+  $("#header").prepend(formattedRoll);
+  $("#header").prepend(formattedName);
+  $("#header").append(HTMLskillsStart);
+  $("#skills").append(formattedSkill);
+
+bio.skills.forEach(function(skills){
+  // for (skills in bio.skills) {
+  var formattedSkill = HTMLskills.replace("%data%", bio.skills);
+    // $("#skills").append(formattedSkill);
+    // formattedSkill = HTMLskills.replace("%data%", bio.skills);
+    // $("#skills").append(formattedSkill);
+    // formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+    // $("#skills").append(formattedSkill);
+    // formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+    // $("#skills").append(formattedSkill);
+    // formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+    // $("#skills").append(formattedSkill);
     // formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
     // $("#skills").append(formattedSkill);
-  }
+  });
 }
-displayBio();
+bio.display();
