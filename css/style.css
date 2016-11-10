@@ -60,8 +60,13 @@ h5 {
   padding:10px 5%;
 
 }
-
-
+.role {
+  color: white;
+}
+.flex-item {
+  list-style-type: none;
+  padding: 3px;
+}
 .date-text {
   font-style: italic;
   font-size: 14px;
