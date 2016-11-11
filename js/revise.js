@@ -58,8 +58,8 @@ var bio = {
  var work = {
    "jobs" : [
      {
-     "employer" : "Lanier Brough",
-     "title" : "Line-haul Driver",
+     "employer" : "<a href='http://www.brughtrucking.com/'target='blank'>Lanier Brugh</a>",
+     "title" : "Line-Haul Driver",
      "location" : "Seattle, WA",
      "dates" : "2013 - 2016",
      "description" : "Hauled US mail with 53' trailer and Day-cab"
@@ -69,7 +69,7 @@ var bio = {
      "title" : "Class A CDL Driver / Owner",
      "location" : "Wayne, MI",
      "dates" : "2005 - 2013",
-     "description" : "Expidited frieght within the US and Canada"
+     "description" : "Expedited frieght within the US and Canada"
    },
    {
      "employer" : "Apple, Inc.",
@@ -87,13 +87,13 @@ var bio = {
        "title" : "Portfolio Site",
        "dates" : "2016",
        "description" : "Personal Portfolio site",
-       "images" : ["http://placehold.it/350x150"]
+       "images" : ["images/meh.jpg"]
      },
      {
        "title" : "To-Do List",
        "dates" : "2015",
        "description" : "Simple To-Do list code-along with Colt Steele",
-       "images" : ["images/meh.jpg", "images/fry.jpg"]
+       "images" : ["http://placehold.it/250x150"]
      }
    ]
  }
@@ -151,7 +151,7 @@ $("#mapDiv").append(googleMap);
       // var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
       var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
       var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-  $("#header").append(formattedGitHub, formattedEmail, formattedMobile, formattedTwitter, formattedLocation);
+  $("#header").append( formattedMobile, formattedEmail, formattedGitHub, formattedTwitter, formattedLocation);
    $("#header").prepend(formattedName);
    $("#header").prepend(formattedRoll);
    $("#header").prepend(formattedPic);
@@ -176,13 +176,15 @@ work.display = function() {
 
   var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
   var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
-  var formattedEmployerTitle = formattedEmployer + formattedTitle;
   var formattedDates = HTMLworkDates.replace("%data%", job.dates);
   var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
 
-  $(".work-entry:last").append(formattedEmployerTitle);
+  $(".work-entry:last").append(formattedEmployer);
   $(".work-entry:last").append(formattedDates);
+  $(".work-entry:last").append(formattedTitle);
   $(".work-entry:last").append(formattedDescription);
+
+
 
   });
 }

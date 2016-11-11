@@ -10,7 +10,6 @@ h4,
 h5,
 h6 {
   padding:0;
-  margin:0;
   font-family: "Roboto", sans-serif;
 }
 
@@ -21,13 +20,17 @@ h6 {
 .education-entry,
 .work-entry,
 .project-entry {
-  padding: 0 5%;
+  padding: 0 2%;
+}
+
+.work-entry a {
+  margin: 0;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 30px;
   color: #f5a623;
-  line-height: 48px;
+  line-height: 40px;
   display: inline;
 }
 
@@ -63,9 +66,12 @@ h5 {
 .role {
   color: white;
 }
+
 .flex-item {
   list-style-type: none;
-  padding: 3px;
+  padding: 1px;
+  font-size: 18px;
+  margin-left: 10px;
 }
 .date-text {
   font-style: italic;
@@ -81,7 +87,13 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
+}
+#topContacts {
+  display: none;
+}
 
+#workTitle {
+  padding: 4px;
 }
 
 p {
@@ -97,16 +109,18 @@ a {
   display: block;
 }
 
-.welcome-message {
+/*.welcome-message {
   font-style: italic;
   font-size: 18px;
   color: #f3f3f3;
   line-height: 28px;
-}
+  text-align: center;
+}*/
 
 #skills-h3 {
   color: #f5ae23;
   display: none;
+  text-align: center;
 }
 
 .orange {
@@ -143,7 +157,7 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 10px;
+  padding: 2px;
 }
 
 .center-content {
