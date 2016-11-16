@@ -210,16 +210,16 @@ education.display = function() {
 $("#education").append(HTMLschoolStart);
   education.onlineCourses.forEach(function(online) {
 
+var formattedOnlineDates = HTMLonlineDates.replace("%data%", online.date);
 var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", online.title);
 var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", online.school);
-var formattedOnlineDates = HTMLonlineDates.replace("%data%", online.date);
 var formattedOnlineURL = HTMLonlineURL.replace("%data%", online.url);
 var formattedOnline = formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineURL;
     console.log(online);
-    $(".education-entry:last").append(formattedOnlineTitle);
-    $(".education-entry:last").append(formattedOnlineSchool);
-    $(".education-entry:last").append(formattedOnlineDates);
-    $(".education-entry:last").append(formattedOnlineURL);
+    $(".education-entry:last").append(formattedOnline);
+    // $(".education-entry:last").append(formattedOnlineSchool);
+    // $(".education-entry:last").append(formattedOnlineDates);
+    // $(".education-entry:last").append(formattedOnlineURL);
   });
 };
 education.display();
