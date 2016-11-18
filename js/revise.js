@@ -58,7 +58,7 @@ var bio = {
  var work = {
    "jobs" : [
      {
-     "employer" : "<a href='http://www.brughtrucking.com/'target='blank'>Lanier Brugh</a>",
+     "employer" : "Lanier Brugh",
      "title" : "Line-Haul Driver",
      "location" : "Seattle, WA",
      "dates" : "2013 - 2016",
@@ -93,7 +93,7 @@ var bio = {
        "title" : "To-Do List",
        "dates" : "2015",
        "description" : "Simple To-Do list code-along with Colt Steele",
-       "images" : ["http://placehold.it/250x150"]
+       "images" : ["http://placehold.it/300x200"]
      }
    ]
  }
