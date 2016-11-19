@@ -33,17 +33,17 @@ var education = {
     "onlineCourses": [{
         "title": "Front-end Web Develoment Nanodegree",
         "school": "Udacity",
-        "date": "2016",
+        "dates": "2016",
         "url": "http://www.udacity.com"
     }, {
         "title": "Git Path",
         "school": "Code School",
-        "date": "2015",
+        "dates": "2015",
         "url": "http://www.codeschool.com"
     }, {
         "title": "Complete Web Developer Bootcamp",
         "school": "Udemy",
-        "date": "2015",
+        "dates": "2015",
         "url": "http://www.udemy.com/job-ready-web-developer"
     }]
 };
@@ -122,7 +122,7 @@ bio.display = function() {
     // var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#header").append(formattedMobile, formattedEmail, formattedGitHub, formattedTwitter, formattedLocation);
+    $("#header, #footerContacts").append(formattedMobile, formattedEmail, formattedGitHub, formattedTwitter, formattedLocation);
     $("#header").prepend(formattedName);
     $("#header").prepend(formattedRoll);
     $("#header").prepend(formattedPic);
@@ -181,7 +181,7 @@ education.display = function() {
     $("#education").append(HTMLschoolStart);
     education.onlineCourses.forEach(function(online) {
 
-        var formattedOnlineDates = HTMLonlineDates.replace("%data%", online.date);
+        var formattedOnlineDates = HTMLonlineDates.replace("%data%", online.dates);
         var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", online.title);
         var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", online.school);
         var formattedOnlineURL = HTMLonlineURL.replace("%data%", online.url);
